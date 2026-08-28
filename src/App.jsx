@@ -47,6 +47,16 @@ function App() {
         setTasks((prev) => prev.filter((t) => t.id !== id))
     }
 
+    async function handleEdit(id, newTitle) {
+        const task = tasks.find((t) => t.id === id)
+        const updated = await updateTask(id, {
+            title: newTitle,
+            description: task.description,
+            completed: task.completed,
+        })
+        setTasks((prev) => prev.map((t) => (t.id === id ? updated : t)))
+    }
+
     return (
         <div className="app">
             <h1 className="app-title">To-Do List</h1>
@@ -58,6 +68,7 @@ function App() {
                     error={error}
                     onToggle={handleToggle}
                     onDelete={handleDelete}
+                    onEdit={handleEdit}
                 />
             </div>
         </div>

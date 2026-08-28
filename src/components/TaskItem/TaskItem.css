@@ -96,6 +96,76 @@
     background: #dc2626;
 }
 
+/* Confirm state pulses orange to warn user */
+.btn-delete.confirm {
+    background: #f97316;
+    animation: pulse 0.6s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 1; }
+    to   { opacity: 0.7; }
+}
+
+/* Edit button */
+.btn-edit {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.btn-edit:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+/* Save button */
+.btn-save {
+    background: #6366f1;
+    color: #fff;
+}
+
+.btn-save:hover:not(:disabled) {
+    background: #4f46e5;
+}
+
+/* Cancel button */
+.btn-cancel {
+    background: #374151;
+    color: #e2e8f0;
+}
+
+.btn-cancel:hover:not(:disabled) {
+    background: #4b5563;
+}
+
+/* Inline edit area */
+.edit-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.edit-input {
+    padding: 0.4rem 0.65rem;
+    background: #16161f;
+    border: 1px solid #6366f1;
+    border-radius: 6px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    outline: none;
+    width: 100%;
+}
+
+.edit-error {
+    margin: 0;
+    font-size: 0.78rem;
+    color: #f87171;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
 @media (max-width: 500px) {
     .task-item {
         flex-direction: column;
