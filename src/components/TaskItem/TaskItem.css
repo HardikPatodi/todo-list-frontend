@@ -96,17 +96,6 @@
     background: #dc2626;
 }
 
-/* Confirm state pulses orange to warn user */
-.btn-delete.confirm {
-    background: #f97316;
-    animation: pulse 0.6s ease infinite alternate;
-}
-
-@keyframes pulse {
-    from { opacity: 1; }
-    to   { opacity: 0.7; }
-}
-
 /* Edit button */
 .btn-edit {
     background: #3b82f6;
