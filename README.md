@@ -4,6 +4,11 @@ A React single-page application that lets users manage tasks through a clean bro
 
 ---
 
+## Repository approach
+ 
+This assignment lives in its own repository (not a subfolder inside a
+combined repo), as allowed by the assessment instructions.
+
 ## What it does
 
 - **View** all tasks in a list, ordered newest first
@@ -30,7 +35,7 @@ Make sure you have the following installed before starting:
 
 | Tool | Version | Download |
 |------|---------|----------|
-| Node.js | 18 or higher | https://nodejs.org |
+| Node.js | **20.19.0 or higher** (or ≥ 22.12.0) | https://nodejs.org |
 | npm | comes with Node.js | — |
 | Python | 3.10 or higher | https://python.org (for the backend) |
 
@@ -39,7 +44,7 @@ Make sure you have the following installed before starting:
 ## Project Structure
 
 ```
-To-Do list frontend/
+todo-list-frontend/
 ├── .gitignore
 ├── README.md
 ├── package.json
@@ -49,7 +54,7 @@ To-Do list frontend/
     ├── main.jsx                  # Entry point — mounts React into the DOM
     ├── App.jsx                   # Root component — state management and CRUD logic
     ├── App.css
-    ├── index.css                 # Global reset and dark theme
+    ├── index.css                
     ├── api/
     │   └── taskApi.js            # All API calls in one place (configurable base URL)
     └── components/
@@ -80,13 +85,21 @@ npm install
 
 The app reads the backend URL from an environment variable so it is never hardcoded.
 
-Create a file named `.env` in the project root (this file is excluded from Git):
+A committed `.env.example` is included in the repository as a reference.
+Copy it to create your own `.env` (this file is excluded from Git):
+
+```bash
+copy .env.example .env   # Windows
+cp  .env.example .env   # macOS / Linux
+```
+
+The file contains:
 
 ```
-VITE_API_BASE_URL=http://localhost:****
+VITE_API_BASE_URL=http://localhost:8000
 ```
 
-> Change `8000` to whichever port your Assignment 4 FastAPI backend is running on.  
+> If your FastAPI backend runs on a different port, update the port number in `.env`.  
 > The variable **must** start with `VITE_` for Vite to expose it to the browser.
 
 ---
@@ -131,8 +144,8 @@ The app will be available at `http://localhost:5173`.
 
 | Terminal | Folder | Command |
 |----------|--------|---------|
-| Terminal 1 (backend) | `To-Do list/` | `uvicorn main:app --reload` |
-| Terminal 2 (frontend) | `To-Do list frontend/` | `npm run dev` |
+| Terminal 1 (backend) | `todo-list/` | `uvicorn main:app --reload` |
+| Terminal 2 (frontend) | `todo-list-frontend/` | `npm run dev` |
 
 Then open `http://localhost:5173` in your browser.
 
